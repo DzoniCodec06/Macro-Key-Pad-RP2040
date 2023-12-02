@@ -5,9 +5,12 @@ from kmk.keys import KC
 from kmk.handlers.sequences import simple_key_sequence
 from kmk.handlers.sequences import send_string
 from kmk.scanners import DiodeOrientation
+from kmk.modules.layers import Layers
 
 
 keyboard = KMKKeyboard()
+
+keyboard.modules.append(Layers())
 
 keyboard.col_pins = (board.GP29, board.GP28, board.GP27, board.GP26)
 keyboard.row_pins = (board.GP6, board.GP5, board.GP4)
@@ -17,33 +20,28 @@ keyboard.diode_orientation = DiodeOrientation.COL2ROW
 
 #ALT_TAB = simple_key_sequence (KEY_SEQUENCE)
 
+DELAY = 1000 # Delay between sending string and hitting Enter
+
+# ---- Apps commands ---- #
+
 GITHUB = simple_key_sequence(
     (
-        KC.LCTRL(KC.LALT(KC.LSHIFT(KC.B))),
-        KC.MACRO_SLEEP_MS(500),
         send_string("github.com"),
         KC.ENTER,
-        KC.LWIN(KC.UP)
     )
 )
 
 GMAIL = simple_key_sequence(
     (
-        KC.LCTRL(KC.LALT(KC.LSHIFT(KC.B))),
-        KC.MACRO_SLEEP_MS(500),
         send_string("gmail.com"),
         KC.ENTER,
-        KC.LWIN(KC.UP)
     )
 )
 
 YOUTUBE = simple_key_sequence(
     (
-        KC.LCTRL(KC.LALT(KC.LSHIFT(KC.B))),
-        KC.MACRO_SLEEP_MS(500),
         send_string("youtube.com"),
         KC.ENTER,
-        KC.LWIN(KC.UP)
     )
 )
 
@@ -54,7 +52,7 @@ VS_CODE = KC.LCTRL(KC.LALT(KC.LSHIFT(KC.V)))
 BROWSER = simple_key_sequence(
     (
         KC.LCTRL(KC.LALT(KC.LSHIFT(KC.B))),
-        KC.MACRO_SLEEP_MS(500),
+        KC.MACRO_SLEEP_MS(DELAY),
         KC.LWIN(KC.UP)
     )
 )
@@ -73,6 +71,10 @@ NEXT = simple_key_sequence(
     )
 )
 
+STEAM = KC.LCTRL(KC.LSHIFT(KC.LALT(KC.S)))
+
+# ---- Functions commands ---- #
+
 EXIT = KC.LALT(KC.F4)
 
 SAVE = simple_key_sequence(
@@ -83,6 +85,16 @@ SAVE = simple_key_sequence(
     )
 )
 
+NEW_TAB = KC.RCTRL(KC.T)
+
+CLOSE_TAB = KC.RCTRL(KC.W)
+
+RELOAD_TAB = KC.RCTRL(KC.R)
+
+SWITCH_TAB = KC.RCTRL(KC.TAB)
+
+INSPECT_EL = KC.F12
+
 OPEN_FOLDER = simple_key_sequence(
     (
         KC.LCTRL(no_release=True),
@@ -92,12 +104,32 @@ OPEN_FOLDER = simple_key_sequence(
     )
 )
 
+# ---- Layers ---- #
+
+LAYER_TOGGLE = KC.LT(1, SAVE) 
+
+BROWSER_LAYER = KC.TG(2)
+
+# ---- Keymap ---- #
+
 keyboard.keymap = [
     [
-        VS_CODE, FIGMA, EASY_EDA, GITHUB,
-        BROWSER, YOUTUBE, GMAIL, NEXT,
-        FILES, OPEN_FOLDER, SAVE, EXIT,
-    ]                                                                   
+        VS_CODE, FIGMA, EASY_EDA, KC.NO,
+        NEXT, BROWSER, FILES, EXIT,
+        KC.NO, KC.NO, LAYER_TOGGLE, KC.NO,
+    ],
+
+    [
+        KC.NO, BROWSER_LAYER, KC.NO, KC.NO,
+        KC.NO, KC.NO, KC.NO, KC.NO, 
+        KC.NO, KC.NO, KC.NO, KC.NO, 
+    ],      
+
+    [
+        NEW_TAB, CLOSE_TAB, RELOAD_TAB, SWITCH_TAB,
+        KC.TAB, GITHUB, YOUTUBE, KC.ENTER,
+        BROWSER_LAYER, INSPECT_EL, GMAIL, KC.NO,
+    ]                                                             
 ]
 
 if __name__ == '__main__':
