@@ -1,4 +1,11 @@
 #include <Keyboard.h>
+#include <Adafruit_NeoPixel.h>
+
+#define PIN 15
+
+#define NUMPIXELS 5
+
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 const int ROW_1 = 6;
 const int ROW_2 = 5;
@@ -44,6 +51,8 @@ void setup() {
   for (int i = 0; i < 4; i++) pinMode(COLS[i], INPUT_PULLUP);
 
   Keyboard.begin();
+  pixels.begin();
+  pixels.clear();
 }
 
 void loop() {
@@ -51,6 +60,10 @@ void loop() {
   col_2 = digitalRead(COLS[1]);
   col_3 = digitalRead(COLS[2]);
   col_4 = digitalRead(COLS[3]);
+
+  for (int i = 0; i < 5; i++) pixels.setPixelColor(i, pixels.Color(0, 255, 0));
+
+  pixels.show();   // Send the updated pixel colors to the hardware.
 
   if (col_1 == LOW) { // COLUMN 1 == LOW
     digitalWrite(ROW_1, HIGH); // SET ROW 1 = HIGH
