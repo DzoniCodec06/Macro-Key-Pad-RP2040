@@ -1,0 +1,15 @@
+{
+  "name": "macro-keypad-software",
+  "version": "1.0.0",
+  "description": "Software for Macro Keypad developed and Designed by Nikola Bojinovic",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nikola Bojinovic",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "serialport": "^12.0.0"
+  }
+}

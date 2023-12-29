@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Macro Keypad V1.0</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="key_insert_false"> 
+        <header>
+        <div class="device-port">
+            <img src="./images-icons/keypad-icon.png">
+            <h2>RP2040 - Port 3</h2>
+        </div>
+        <h1>Macro Key Pad by Nikola Bojinovic</h1>
+    </header>
+    <div class="center-div">
+        <div class="keypad-box">
+            <div class="row">
+                <button id="r1c1">A</button>
+                <button id="r1c2">1</button>
+                <button id="r1c3">2</button>
+                <button id="r1c4">3</button>
+            </div>
+            <div class="row">
+                <button id="r2c1">B</button>
+                <button id="r2c2">N</button>
+                <button id="r2c3">K</button>
+                <button id="r2c4">L</button>
+            </div>
+            <div class="row">
+                <button id="r3c1">C</button>
+                <button id="r3c2">D</button>
+                <button id="r3c3">7</button>
+                <button id="r3c4">8</button>
+            </div>
+        </div>
+        <footer>
+            <div class="buttons">
+                <button id="btn-macros">MACROS</button>
+                <button id="btn-rgb">RGB</button>
+            </div>
+        </footer>
+    </div>
+    <div class="overlay">
+        <div class="key-insert-box">
+            <h1>Inser Key Value</h1>
+            <div class="inputs">
+                <input type="text" id="keyName" placeholder="Key Name">
+                <input type="text" id="keyStroke" placeholder="(Ctrl + Alt + ...)" readonly>
+                <input type="text" id="inputText" placeholder="Text (Optional)">
+            </div>
+            <button id="save">Save</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Poppins&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #2B2B2B;
+    font-family: 'Expletus Sans', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+header {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+header h1 {
+    width: 68%;
+    text-align: center;
+}
+
+.device-port {
+    background-color: #4C4C4C;
+    border: 1px solid #BCBCBC;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    width: 13vw;
+    padding-right: 10px;
+    margin-block: 20px;
+    margin-inline: 20px;
+}
+
+.device-port img {
+    scale: 60%;
+}
+
+.device-port h2 {
+    font-size: 20px;
+}
+
+.center-div {
+    margin-top: 10vh;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.keypad-box {
+    background-color: #5C5C5C;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 35px 50px #ffffff11;
+    /*rgba(51, 255, 0, 0.25)*/
+}
+
+.keypad-box .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.keypad-box .row button {
+    width: 100px;
+    height: 100px;
+    font-family: 'Expletus Sans', sans-serif;
+    color: #fff;
+    background-color: #262626;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 40px;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+.keypad-box .row button:hover {
+    transition: all ease-in 0.1s;
+    background-color: #2e2e2e;
+}
+
+.keypad-box .row button:active {
+    transition: all ease 0.15s;
+    background-color: #262626;
+    scale: 95%;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #171717;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+footer button {
+    font-family: 'Expletus Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+}
+
+footer #btn-macros {
+    color: #000;
+    background-color: #fff;
+}
+
+footer #btn-rgb {
+    color: #fff;
+    background-color: #171717;
+}
+
+.key_insert_false .overlay {
+    display: none;
+}
+
+.key_insert_true .overlay {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(33, 33, 33, 0.74);
+}
+
+.key_insert_true .overlay .key-insert-box {
+    /*width: 500px;
+    height: 400px; */
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #181818;
+}
+
+.key-insert-box .inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs input {
+    border: none;
+    outline: none;
+    font-family: 'Expletus Sans', sans-serif;
+    background-color: #272727;
+    font-size: 18px;
+    color: white;
+    margin-block: 10px;
+    width: 400px;
+    padding: 15px 15px;
+    text-align: center;
+}
+
+.inputs input:last-child {
+    text-align: left;
+}
+
+.key-insert-box button {
+    font-family: 'Expletus Sans', sans-serif;
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #4C4C4C;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 30px;
+}
