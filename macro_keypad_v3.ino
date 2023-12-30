@@ -70,6 +70,13 @@ void vs_code() {
   Keyboard.releaseAll();
 }
 
+void npm_start() {
+  Keyboard.print("npm start");
+  Keyboard.press(KEY_RETURN);
+  delay(10);
+  Keyboard.releaseAll();
+}
+
 //---- Keypad Functions ----//
 
 //---- RGB-Color functions ----//
@@ -289,8 +296,6 @@ void rgb_snake() {
 //---- Second Core ----//
 //---- Handling NeoPixel RGB's ----//
 
-String command;
-
 void setup1() {
   Serial.begin(9600);
   pixels.begin();
@@ -415,6 +420,8 @@ void change_layer() {
   } else layer = 0;
 }
 
+String command[3];
+
 void setup() {
   Serial.begin(9600);
 
@@ -431,17 +438,33 @@ void setup() {
   Keyboard.begin();
 }
 
+int c = 0;
+
 void loop() {
+  if (Serial.available() > 0) {
+    Serial.println("Hello from RP2040!");
+    if (c <= 2) {
+      command[c] = Serial.readStringUntil('\n');
+      Serial.println(c);
+      c += 1;
+    } 
+    if (c > 2) {
+      Serial.println(command[0]);
+      Serial.println(command[1]);
+      Serial.println(command[2]);
+      c = 0;
+    }
+  }
   if (layer == 0) {
     key_map(
       win_log, vs_code, browser, alt_tab,
-      kill_task, key_n, key_n, key_n,
+      kill_task, npm_start, key_n, key_n,
       change_layer, key_n, key_n, change_color
     );
   } else if (layer == 1) {
     key_map(
       key_n, key_n, key_n, alt_tab,
-      key_n, key_n, key_n, key_n,
+      kill_task, key_n, key_n, npm_start,
       change_layer, key_n, key_n, change_color
     );
   }
