@@ -10,29 +10,29 @@
         <header>
         <div class="device-port">
             <img src="./images-icons/keypad-icon.png">
-            <h2>RP2040 - Port 3</h2>
+            <h2 id="portAndPath">Disconnected</h2>
         </div>
         <h1>Macro Key Pad by Nikola Bojinovic</h1>
     </header>
     <div class="center-div">
         <div class="keypad-box">
             <div class="row">
-                <button id="r1c1">A</button>
-                <button id="r1c2">1</button>
-                <button id="r1c3">2</button>
-                <button id="r1c4">3</button>
+                <button id="r1c1">/</button>
+                <button id="r1c2">/</button>
+                <button id="r1c3">/</button>
+                <button id="r1c4">/</button>
             </div>
             <div class="row">
-                <button id="r2c1">B</button>
-                <button id="r2c2">N</button>
-                <button id="r2c3">K</button>
-                <button id="r2c4">L</button>
+                <button id="r2c1">/</button>
+                <button id="r2c2">/</button>
+                <button id="r2c3">/</button>
+                <button id="r2c4">/</button>
             </div>
             <div class="row">
-                <button id="r3c1">C</button>
-                <button id="r3c2">D</button>
-                <button id="r3c3">7</button>
-                <button id="r3c4">8</button>
+                <button id="r3c1">/</button>
+                <button id="r3c2">/</button>
+                <button id="r3c3">/</button>
+                <button id="r3c4">/</button>
             </div>
         </div>
         <footer>
@@ -47,7 +47,13 @@
             <h1>Inser Key Value</h1>
             <div class="inputs">
                 <input type="text" id="keyName" placeholder="Key Name">
-                <input type="text" id="keyStroke" placeholder="(Ctrl + Alt + ...)" readonly>
+                <div id="warn-box" class="warning-box-false">
+                    <div class="warn-input">
+                        <img src="./images-icons/warning-sign.png" class="warning-img">
+                        <input type="text" id="keyStroke" placeholder="(Ctrl + Alt + ...)" readonly>
+                    </div>
+                    <p class="warning-txt">3 strokes are maximu, double click to restore, or save it.</p>
+                </div>
                 <input type="text" id="inputText" placeholder="Text (Optional)">
             </div>
             <button id="save">Save</button>
