@@ -7,58 +7,77 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body class="key_insert_false"> 
+        <div class="overlay-0" id="ovrly"></div>
         <header>
-        <div class="device-port">
-            <img src="./images-icons/keypad-icon.png">
-            <h2 id="portAndPath">Disconnected</h2>
-        </div>
-        <h1>Macro Key Pad by Nikola Bojinovic</h1>
-    </header>
-    <div class="center-div">
-        <div class="keypad-box">
-            <div class="row">
-                <button id="r1c1">/</button>
-                <button id="r1c2">/</button>
-                <button id="r1c3">/</button>
-                <button id="r1c4">/</button>
+            <div class="device-port">
+                <img src="./images-icons/keypad-icon.png">
+                <h2 id="portAndPath">Disconnected</h2>
             </div>
-            <div class="row">
-                <button id="r2c1">/</button>
-                <button id="r2c2">/</button>
-                <button id="r2c3">/</button>
-                <button id="r2c4">/</button>
-            </div>
-            <div class="row">
-                <button id="r3c1">/</button>
-                <button id="r3c2">/</button>
-                <button id="r3c3">/</button>
-                <button id="r3c4">/</button>
-            </div>
-        </div>
-        <footer>
-            <div class="buttons">
-                <button id="btn-macros">MACROS</button>
-                <button id="btn-rgb">RGB</button>
-            </div>
-        </footer>
-    </div>
-    <div class="overlay">
-        <div class="key-insert-box">
-            <h1>Inser Key Value</h1>
-            <div class="inputs">
-                <input type="text" id="keyName" placeholder="Key Name">
-                <div id="warn-box" class="warning-box-false">
-                    <div class="warn-input">
-                        <img src="./images-icons/warning-sign.png" class="warning-img">
-                        <input type="text" id="keyStroke" placeholder="(Ctrl + Alt + ...)" readonly>
-                    </div>
-                    <p class="warning-txt">3 strokes are maximu, double click to restore, or save it.</p>
+            <h1>Macro Key Pad by Nikola Bojinovic</h1>
+        </header>
+        <div class="center-div">
+            <div class="keypad-box-r" id="kpb">
+                <div class="row">
+                    <button id="r1c1">/</button>
+                    <button id="r1c2">/</button>
+                    <button id="r1c3">/</button>
+                    <button id="r1c4">/</button>
                 </div>
-                <input type="text" id="inputText" placeholder="Text (Optional)">
+                <div class="row">
+                    <button id="r2c1">/</button>
+                    <button id="r2c2">/</button>
+                    <button id="r2c3">/</button>
+                    <button id="r2c4">/</button>
+                </div>
+                <div class="row">
+                    <button id="r3c1">/</button>
+                    <button id="r3c2">/</button>
+                    <button id="r3c3">/</button>
+                    <button id="r3c4">/</button>
+                </div>
             </div>
-            <button id="save">Save</button>
+            <footer>
+                <div class="buttons">
+                    <button id="btn-macros">MACROS</button>
+                    <button id="btn-rgb">RGB</button>
+                </div>
+            </footer>
         </div>
-    </div>
-    <script src="main.js"></script>
-</body>
+        <div class="overlay">
+            <div class="key-insert-box">
+                <h1>Insert Key Value</h1>
+                <div class="inputs">
+                    <input type="text" id="keyName" placeholder="Key Name">
+                    <div id="warn-box" class="warning-box-false">
+                        <div class="warn-input">
+                            <img src="./images-icons/warning-sign.png" class="warning-img">
+                            <input type="text" id="keyStroke" placeholder="(Ctrl + Alt + ...)" readonly>
+                        </div>
+                        <p class="warning-txt">4 strokes are maximu, double click to restore, or save it.</p>
+                    </div>
+                    <input type="text" id="inputText" placeholder="Text (Optional)">
+                </div>
+                <button id="save">Save</button>
+            </div>
+        </div>
+        <div class="prog_cont_false" id="prg">
+            <div class="progress-container-false" id="prgbar">
+                <div class="title">
+                    <h1>Progress: </h1>
+                    <h1 id="prgs">0%</h1>
+                </div>
+                <div class="bar">
+                    <div class="progress_bar_back">
+                        <div id="prgs_value" value="0" max="100">
+                            <h3 id="bar_prgs"> 0%</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="upload-status-false" id="stats">
+                <h1>Done Uploading</h1>
+            </div>
+        </div>
+    </body>
+<script src="main.js"></script>
 </html>
