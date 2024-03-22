@@ -57,7 +57,7 @@ header h1 {
     align-items: center;
 }
 
-.keypad-box {
+.keypad-box-b {
     background-color: #5C5C5C;
     border-radius: 20px;
     width: fit-content;
@@ -65,18 +65,48 @@ header h1 {
     display: flex;
     flex-direction: column;
     padding: 20px 20px;
-    box-shadow: 0px 0px 35px 50px #ffffff11;
+    box-shadow: 0px 0px 35px 50px #002fff3b; 
+    transition: all ease-in 0.2s;
+    /*box-shadow: 0px 0px 35px 50px #ffffff11;*/
     /*rgba(51, 255, 0, 0.25)*/
 }
 
-.keypad-box .row {
+.keypad-box-r {
+    background-color: #5C5C5C;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 35px 50px #ff00003b; 
+    transition: all ease-in 0.2s;
+    /*box-shadow: 0px 0px 35px 50px #ffffff11;*/
+    /*rgba(51, 255, 0, 0.25)*/
+}
+
+.keypad-box-g {
+    background-color: #5C5C5C;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 35px 50px #1eff003b; 
+    transition: all ease-in 0.2s;
+    /*box-shadow: 0px 0px 35px 50px #ffffff11;*/
+    /*rgba(51, 255, 0, 0.25)*/
+}
+
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.keypad-box .row button {
+.row button {
     width: 100px;
     height: 100px;
     font-family: 'Expletus Sans', sans-serif;
@@ -90,12 +120,12 @@ header h1 {
     margin: 10px 10px;
 }
 
-.keypad-box .row button:hover {
+.row button:hover {
     transition: all ease-in 0.1s;
     background-color: #2e2e2e;
 }
 
-.keypad-box .row button:active {
+.row button:active {
     transition: all ease 0.15s;
     background-color: #262626;
     scale: 95%;
@@ -239,4 +269,115 @@ footer #btn-rgb {
 .warn-input input {
     margin-block: 0px;
     text-align: center;
+}
+
+
+/***********************************************************PROGRESS********************************************************************/
+
+.overlay-0 {
+    position: absolute;
+    z-index: 0;
+    display: none;
+}
+
+.overlay-1 {
+    position: absolute;
+    display: block;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000008f;
+}
+
+.prog_cont_false {
+    z-index: 0;
+    display: none;
+}
+
+.prog_cont {
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    width: 30vw;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2B2B2B;
+    transition: all ease-out 1s;
+    border-radius: 10px;
+}
+
+.progress-container-false {
+    display: none;
+    transition: all ease-out 1s;
+    transform: scale(0);
+}
+
+.progress-container .title {
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+.progress-container .title #prgs {
+    margin-left: 10px;
+}
+
+.bar {
+    color: #1E1E1E;
+}
+
+.progress_bar_back {
+    display: flex;
+    width: 25vw;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #1E1E1E;
+    border-radius: 35px;
+}
+
+#prgs_value {
+    width: 1%;
+    height: 5vh; 
+    background-color: #fff;
+    border-radius: 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+    box-shadow: 0px 0px 12px 12px #ffffff21;
+    transition: all ease-out 0.2s;
+}
+
+#bar_prgs {
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.upload-status-false {
+    display: none;
+    transition: all ease-in 1s;
+}
+
+.upload-status {
+    display: flex;
+    height: 15vh;
+    width: 30vw;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2B2B2B;
+    color: #e4e4e4;
+    transition: all ease-in 1s;
+    border-radius: 10px;
 }
